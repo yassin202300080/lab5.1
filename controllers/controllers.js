@@ -10,22 +10,50 @@ const retrieveAllTrips = (req, res) => {
   });
 };
 
-const createtrip =(req,res)=> {
-  const{
-    id,
-      destinationName,
-      location,
-      continent,
-      language,
-      description,
-      flightCost,
-      accommodationCost,
-      mealCost80,
-      visaCost50,
-      transportationCost,
-      currencyCode,} =req,body;
+const createtrip =(req,res) => {
+    const {
+        destinationName,
+        location,
+        continent,
+        language,
+        description,
+        flightCost,
+        accommodationCost,
+        mealCost,
+        visaCost,
+        transportationCost,
+        currencyCode,}=req.body;
+
+
+const newTrip=
+{
+id:trips.length+1,
+destinationName,
+        location,
+        continent,
+        language,
+        description,
+        flightCost,
+        accommodationCost,
+        mealCost,
+        visaCost,
+        transportationCost,
+        currencyCode,
+
 }
-const newTrip={
+trips.push(newTrip);
 
 }
 
+const deleteTripById=(req,res)=>{
+    const id=Number(req.params.id);
+    const index=trips.findIndex(t=>t.id==id);
+    trips.slice(index,1);
+    res.status(200).json({
+        status:'success',
+        message:'Trip deleted successfully'
+    });
+}
+
+module.exports
+{retrieveAllTrips,createTrip,deleteTripById};
