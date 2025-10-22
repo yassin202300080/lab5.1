@@ -10,4 +10,22 @@ const retrieveAllTrips = (req, res) => {
   });
 };
 
+const createtrip =(req,res)=> {
+  const{
+    id,
+      destinationName,
+      location,
+      continent,
+      language,
+      description,
+      flightCost,
+      accommodationCost,
+      mealCost80,
+      visaCost50,
+      transportationCost,
+      currencyCode,} =req,body;
+}
+const newTrip={
+
+}
 
